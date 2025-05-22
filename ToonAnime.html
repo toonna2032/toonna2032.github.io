@@ -1,0 +1,65 @@
+import React from "react";
+
+const animeList = [
+  {
+    title: "Attack on Titan",
+    image: "https://cdn.anime-pictures.net/attack-on-titan.jpg",
+  },
+  {
+    title: "Jujutsu Kaisen",
+    image: "https://cdn.anime-pictures.net/jujutsu-kaisen.jpg",
+  },
+  {
+    title: "Demon Slayer",
+    image: "https://cdn.anime-pictures.net/demon-slayer.jpg",
+  },
+  {
+    title: "Naruto",
+    image: "https://cdn.anime-pictures.net/naruto.jpg",
+  },
+];
+
+export default function HomePage() {
+  return (
+    <div className="bg-gray-900 text-white min-h-screen">
+      {/* Navbar */}
+      <header className="p-4 flex justify-between items-center bg-gray-800 shadow-md">
+        <h1 className="text-2xl font-bold">OtakuStream</h1>
+        <nav className="space-x-4">
+          <a href="#" className="hover:text-pink-400">Home</a>
+          <a href="#" className="hover:text-pink-400">Browse</a>
+          <a href="#" className="hover:text-pink-400">Genres</a>
+          <a href="#" className="hover:text-pink-400">Search</a>
+        </nav>
+      </header>
+
+      {/* Hero Section */}
+      <section className="relative bg-cover bg-center h-64 md:h-96 flex items-center justify-center" style={{ backgroundImage: 'url(https://cdn.anime-pictures.net/hero-banner.jpg)' }}>
+        <div className="bg-black bg-opacity-60 p-6 rounded-xl">
+          <h2 className="text-4xl font-extrabold mb-2">Stream the Latest Anime</h2>
+          <p className="text-lg">Watch anytime, anywhere</p>
+        </div>
+      </section>
+
+      {/* Trending Section */}
+      <section className="p-6">
+        <h3 className="text-2xl font-semibold mb-4">Trending Now</h3>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+          {animeList.map((anime, index) => (
+            <div key={index} className="bg-gray-800 rounded-lg overflow-hidden shadow-md hover:scale-105 transform transition">
+              <img src={anime.image} alt={anime.title} className="w-full h-48 object-cover" />
+              <div className="p-2">
+                <h4 className="font-bold text-lg truncate">{anime.title}</h4>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-800 p-4 text-center text-sm">
+        © 2025 ToonAnime. All rights reserved.
+      </footer>
+    </div>
+  );
+}
